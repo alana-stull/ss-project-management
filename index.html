@@ -51,9 +51,14 @@
     text-align: center; overflow: hidden;
   }
   .hero-bg {
-    position: absolute; inset: 0;
-    background: url('images/living-room-1.jpg') center/cover no-repeat;
+    position: absolute; inset: 0; overflow: hidden;
   }
+  .hero-slide {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    opacity: 0; transition: opacity 1.4s ease-in-out;
+  }
+  .hero-slide.active { opacity: 1; }
   .hero-overlay {
     position: absolute; inset: 0;
     background: linear-gradient(to bottom, rgba(15,15,30,0.72) 0%, rgba(15,15,30,0.55) 60%, rgba(15,15,30,0.8) 100%);
@@ -257,7 +262,7 @@
   }
   .cta-banner::before {
     content: ''; position: absolute; inset: 0;
-    background: url('images/balcony.jpg') center/cover no-repeat;
+    background: url('images/BHH%20Website%20pictures/Copy%20of%20Front%20of%20Home.jpg') center/cover no-repeat;
     opacity: 0.15;
   }
   .cta-banner h2 { position: relative; color: #fff; font-size: clamp(28px, 3vw, 42px); font-weight: normal; margin-bottom: 12px; }
@@ -320,7 +325,14 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <div class="hero-slide active" style="background-image: url('images/BHH%20Website%20pictures/Copy%20of%20Living%20Room.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('images/BHH%20Website%20pictures/Copy%20of%20Front%20of%20Home.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('images/BHH%20Website%20pictures/Copy%20of%20Dining%20Room.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('images/BHH%20Website%20pictures/Copy%20of%20Kitchen%20Cooking.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('images/BHH%20Website%20pictures/Copy%20of%20Rehoboth4.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('images/Harmony/Serenity%20%26%20Harmony.png')"></div>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Washington D.C. &nbsp;·&nbsp; Northeast &nbsp;·&nbsp; Central Florida</p>
@@ -436,7 +448,7 @@
       <button class="btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Plan Your Stay</button>
     </div>
     <div class="mission-img">
-      <img src="images/living-room-2.jpg" alt="S&S property interior" />
+      <img src="images/BHH%20Website%20pictures/Copy%20of%20Living%20Room%20Chairs.jpg" alt="S&S property interior" />
     </div>
   </div>
 </section>
@@ -447,12 +459,12 @@
   <h2 class="section-title">Spaces Designed for Living</h2>
   <p class="section-sub" style="margin-bottom: 40px;">Every detail thoughtfully arranged so you can arrive and immediately feel at home.</p>
   <div class="gallery-grid">
-    <div class="gallery-item"><img src="images/living-room-1.jpg" alt="Open living and kitchen" /></div>
-    <div class="gallery-item"><img src="images/bedroom-1.jpg" alt="Primary bedroom" /></div>
-    <div class="gallery-item"><img src="images/bedroom-2.jpg" alt="Second bedroom" /></div>
-    <div class="gallery-item"><img src="images/bedroom-3.jpg" alt="Guest bedroom" /></div>
-    <div class="gallery-item"><img src="images/bedroom-4.jpg" alt="Bright bedroom" /></div>
-    <div class="gallery-item"><img src="images/balcony.jpg" alt="Private balcony" /></div>
+    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Living%20Room.jpg" alt="Open living and kitchen" /></div>
+    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Wilmington%20Beds.jpg" alt="Primary bedroom" /></div>
+    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Rehoboth1.jpg" alt="Second bedroom" /></div>
+    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Dining%20Room.jpg" alt="Dining room" /></div>
+    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Kitchen%20Cooking.jpg" alt="Kitchen" /></div>
+    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Front%20of%20Home.jpg" alt="Front of home" /></div>
   </div>
 </section>
 
@@ -606,6 +618,16 @@
 </footer>
 
 <script>
+(function() {
+  var slides = document.querySelectorAll('.hero-slide');
+  var current = 0;
+  setInterval(function() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000);
+})();
+
 function handleSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button[type="submit"]');
