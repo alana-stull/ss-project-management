@@ -460,12 +460,12 @@
   <h2 class="section-title">Spaces Designed for Living</h2>
   <p class="section-sub" style="margin-bottom: 40px;">Every detail thoughtfully arranged so you can arrive and immediately feel at home.</p>
   <div class="gallery-grid">
-    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Living%20Room.jpg" alt="Open living and kitchen" /></div>
-    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Wilmington%20Beds.jpg" alt="Primary bedroom" /></div>
-    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Rehoboth1.jpg" alt="Second bedroom" /></div>
-    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Dining%20Room.jpg" alt="Dining room" /></div>
-    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Kitchen%20Cooking.jpg" alt="Kitchen" /></div>
-    <div class="gallery-item"><img src="images/BHH%20Website%20pictures/Copy%20of%20Front%20of%20Home.jpg" alt="Front of home" /></div>
+    <div class="gallery-item"><img src="images/Harmony/Serenity%20%26%20Harmony.png" alt="Harmony apartment living space" /></div>
+    <div class="gallery-item"><img src="images/Harmony/Serenity%20%26%20Harmony%20(1).png" alt="Harmony apartment interior" /></div>
+    <div class="gallery-item"><img src="images/Harmony/Serenity%20%26%20Harmony%20(2).png" alt="Harmony apartment bedroom" /></div>
+    <div class="gallery-item"><img src="images/Harmony/Serenity%20%26%20Harmony%20(3).png" alt="Harmony apartment dining area" /></div>
+    <div class="gallery-item"><img src="images/Harmony/Serenity%20%26%20Harmony%20(4).png" alt="Harmony apartment kitchen" /></div>
+    <div class="gallery-item"><img src="images/Harmony/Serenity%20%26%20Harmony%20(5).png" alt="Harmony apartment details" /></div>
   </div>
 </section>
 
@@ -538,14 +538,16 @@
   <h2 class="section-title">Plan Your Stay</h2>
   <p class="section-sub">Tell us a bit about what you need and we'll be in touch shortly.</p>
   <div class="contact-wrap">
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <div class="form-group"><label>First Name</label><input type="text" placeholder="First name" required /></div>
-      <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last name" required /></div>
-      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
-      <div class="form-group"><label>Phone</label><input type="tel" placeholder="(___) ___-____" /></div>
+    <form class="contact-form" action="https://formspree.io/f/Stanford@sspropertym.com" method="POST">
+      <input type="hidden" name="_subject" value="New Inquiry — S&S Property Management" />
+      <input type="hidden" name="_replyto" value="" />
+      <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="First name" required /></div>
+      <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Last name" required /></div>
+      <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required /></div>
+      <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(___) ___-____" /></div>
       <div class="form-group">
         <label>Desired Location</label>
-        <select>
+        <select name="location">
           <option value="">Select a region...</option>
           <option>Washington, D.C.</option>
           <option>Northeast Region</option>
@@ -555,7 +557,7 @@
       </div>
       <div class="form-group">
         <label>Estimated Stay Length</label>
-        <select>
+        <select name="stay_length">
           <option value="">Select length...</option>
           <option>1–7 nights</option>
           <option>1–4 weeks</option>
@@ -563,7 +565,7 @@
           <option>3+ months</option>
         </select>
       </div>
-      <div class="form-group full"><label>Message (optional)</label><textarea placeholder="Any special requests or questions?"></textarea></div>
+      <div class="form-group full"><label>Message (optional)</label><textarea name="message" placeholder="Any special requests or questions?"></textarea></div>
       <div class="form-submit"><button type="submit">Send Inquiry</button></div>
     </form>
   </div>
